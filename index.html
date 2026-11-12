@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GC Projetos e Marcenaria | Móveis planejados no Rio de Janeiro</title>
+<meta name="description" content="Móveis planejados sob medida, do projeto 3D à instalação. Guto Costa, 25 anos de marcenaria. Barra, Recreio, Jacarepaguá e Zona Sul.">
+<meta name="theme-color" content="#1A1A1A">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GC Projetos e Marcenaria">
+<meta property="og:description" content="Móveis planejados sob medida, do projeto 3D à instalação. Barra, Recreio, Jacarepaguá e Zona Sul.">
+<meta property="og:image" content="https://gcmarcenaria.github.io/img/sala-01.jpg">
+<meta property="og:url" content="https://gcmarcenaria.github.io/">
+<link rel="icon" href="img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --grafite: #1A1A1A;
+    --grafite-2: #242321;
+    --mogno: #3D3530;
+    --ouro: #B8924A;
+    --ouro-claro: #D4B27A;
+    --linho: #F5F2EE;
+    --linho-2: #EAE5DD;
+    --cinza: #8C8680;
+    --branco: #FFFFFF;
+    --whats: #1FA855;
+    --raio: 18px;
+    --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+    --sans: Montserrat, "Segoe UI", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: #0F0F0E;
+    color: var(--mogno);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  h1, h2, h3, p { margin: 0; }
+  h1, h2 { font-family: var(--serif); font-weight: 500; text-wrap: balance; }
+
+  .pagina {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--linho);
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Topo */
+  .topo {
+    position: relative;
+    min-height: min(88vh, 660px);
+    display: flex;
+    align-items: flex-end;
+    background: var(--grafite);
+    color: var(--branco);
+  }
+  .topo > img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: 30% center;
+  }
+  .topo::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(26,26,26,.35) 0%, rgba(26,26,26,0) 26%, rgba(26,26,26,.72) 62%, var(--grafite) 100%);
+  }
+  .topo-texto { position: relative; z-index: 1; padding: 0 24px 30px; width: 100%; }
+  .selo {
+    display: inline-block;
+    font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--ouro-claro);
+    padding-bottom: 10px; margin-bottom: 12px;
+    border-bottom: 1px solid var(--ouro);
+  }
+  .topo h1 { font-size: 38px; line-height: 1.08; letter-spacing: -.01em; }
+  .promessa { margin-top: 14px; font-size: 16.5px; color: rgba(255,255,255,.92); max-width: 30ch; }
+  .local {
+    margin-top: 14px;
+    display: flex; gap: 8px; align-items: flex-start;
+    font-size: 13.5px; color: rgba(255,255,255,.78);
+  }
+  .local svg { flex: none; margin-top: 3px; color: var(--ouro-claro); }
+
+  .botao {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 52px; padding: 14px 22px;
+    border-radius: 999px; border: 0;
+    font: 600 15px/1.2 var(--sans);
+    text-decoration: none; cursor: pointer;
+    transition: transform .15s ease, background-color .15s ease;
+  }
+  .botao:active { transform: scale(.98); }
+  .botao-whats { background: var(--whats); color: var(--branco); }
+  .botao-whats:hover { background: #17924A; }
+  .botao-claro { background: var(--branco); color: var(--grafite); }
+  .botao-ouro { background: var(--ouro); color: var(--grafite); }
+  .botao-largo { width: 100%; }
+  .topo .botao { margin-top: 22px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--ouro-claro); outline-offset: 3px; }
+
+  /* Faixa de especialidades */
+  .faixa {
+    background: var(--grafite);
+    border-top: 1px solid rgba(184,146,74,.35);
+    border-bottom: 1px solid rgba(184,146,74,.35);
+    overflow: hidden; white-space: nowrap;
+    padding: 13px 0;
+  }
+  .faixa-trilho { display: inline-flex; animation: correr 38s linear infinite; }
+  .faixa span {
+    font-size: 12px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--linho);
+    padding: 0 14px;
+  }
+  .faixa span::after { content: "◆"; color: var(--ouro); font-size: 8px; margin-left: 28px; vertical-align: middle; }
+  @keyframes correr { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .faixa-trilho { animation: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Vitrine */
+  .vitrine {
+    padding: 22px 16px 8px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .card {
+    position: relative; overflow: hidden;
+    border-radius: var(--raio);
+    min-height: 210px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 16px;
+    color: var(--branco); text-decoration: none;
+    background: var(--grafite);
+  }
+  .card.largo { grid-column: 1 / -1; min-height: 230px; }
+  .card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .card:hover img { transform: scale(1.04); }
+  .card::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(26,26,26,.05) 20%, rgba(26,26,26,.88) 100%);
+  }
+  .card > :not(img) { position: relative; z-index: 1; }
+  [hidden] { display: none !important; }
+  .card h2 { font-size: 22px; line-height: 1.15; }
+  .card.largo h2 { font-size: 26px; }
+  .card p { font-size: 13px; color: rgba(255,255,255,.85); margin-top: 4px; }
+  .card .pilula {
+    align-self: flex-start; margin-top: 12px;
+    display: inline-flex; align-items: center; gap: 8px;
+    min-height: 40px; padding: 9px 16px; border-radius: 999px;
+    background: var(--branco); color: var(--grafite);
+    font-size: 13px; font-weight: 600;
+  }
+  .card .pilula.whats { background: var(--whats); color: var(--branco); }
+
+  /* Seções */
+  section { padding: 46px 20px 8px; scroll-margin-top: 8px; }
+  .rotulo { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--ouro); }
+  section > h2 { font-size: 29px; line-height: 1.15; color: var(--grafite); margin-top: 6px; }
+  .intro { margin-top: 10px; font-size: 15px; color: var(--mogno); }
+
+  /* Serviços */
+  .servicos { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 10px; }
+  .servico {
+    display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: center;
+    background: var(--branco); border-radius: var(--raio); padding: 10px;
+    text-decoration: none;
+    box-shadow: 0 1px 0 var(--linho-2);
+  }
+  .servico img { width: 84px; height: 84px; border-radius: 12px; object-fit: cover; }
+  .servico h3 { font: 600 16px/1.25 var(--sans); color: var(--grafite); }
+  .servico p { font-size: 13px; color: var(--cinza); margin-top: 2px; line-height: 1.4; }
+  .servico em { display: inline-block; margin-top: 6px; font-style: normal; font-size: 12.5px; font-weight: 600; color: #8A6A2C; }
+
+  /* Portfólio */
+  .abas { display: flex; gap: 8px; margin-top: 20px; }
+  .aba {
+    flex: 1; min-height: 44px; padding: 10px 12px;
+    border-radius: 999px; border: 1px solid var(--linho-2);
+    background: transparent; color: var(--mogno);
+    font: 600 13px/1.2 var(--sans); cursor: pointer;
+  }
+  .aba[aria-selected="true"] { background: var(--grafite); border-color: var(--grafite); color: var(--branco); }
+  .grade { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .grade[hidden] { display: none; }
+  .foto {
+    position: relative; padding: 0; border: 0; background: var(--linho-2);
+    border-radius: 14px; overflow: hidden; cursor: zoom-in; aspect-ratio: 1;
+  }
+  .foto.alta { grid-row: span 2; aspect-ratio: auto; }
+  .foto img { width: 100%; height: 100%; object-fit: cover; }
+  .foto span {
+    position: absolute; left: 8px; bottom: 8px;
+    font: 600 11px/1 var(--sans); color: var(--branco);
+    background: rgba(26,26,26,.72); padding: 6px 9px; border-radius: 999px;
+  }
+  .nota { margin-top: 12px; font-size: 12.5px; color: var(--cinza); }
+
+  /* Como funciona */
+  .passos { list-style: none; margin: 24px 0 0; padding: 0; counter-reset: passo; }
+  .passos li {
+    counter-increment: passo;
+    position: relative; padding: 0 0 24px 58px;
+  }
+  .passos li::before {
+    content: counter(passo);
+    position: absolute; left: 0; top: 0;
+    width: 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--grafite); color: var(--ouro-claro);
+    font: 500 18px/1 var(--serif);
+  }
+  .passos li::after {
+    content: ""; position: absolute; left: 19.5px; top: 46px; bottom: 6px;
+    width: 1px; background: var(--ouro); opacity: .5;
+  }
+  .passos li:last-child { padding-bottom: 0; }
+  .passos li:last-child::after { display: none; }
+  .passos h3 { font: 600 16.5px/1.3 var(--sans); color: var(--grafite); padding-top: 8px; }
+  .passos p { font-size: 14px; margin-top: 4px; }
+
+  /* Depoimentos */
+  .depoimentos { display: grid; gap: 12px; margin-top: 22px; }
+  .depoimento { background: var(--branco); border-radius: var(--raio); padding: 20px; border-left: 3px solid var(--ouro); margin: 0; }
+  .depoimento p { font-family: var(--serif); font-size: 17px; line-height: 1.45; color: var(--grafite); }
+  .depoimento footer { margin-top: 12px; font-size: 13px; color: var(--cinza); }
+  .depoimento footer strong { color: var(--mogno); font-weight: 600; }
+
+  /* Fecho */
+  .fecho {
+    margin-top: 48px; padding: 44px 24px 110px;
+    background: var(--grafite); color: var(--branco); text-align: center;
+  }
+  .fecho img { width: 120px; margin: 0 auto 22px; }
+  .fecho h2 { font-size: 27px; line-height: 1.2; }
+  .fecho p { margin-top: 10px; font-size: 14.5px; color: rgba(255,255,255,.78); }
+  .fecho .botao { margin-top: 22px; }
+  .fecho .insta {
+    margin-top: 12px; background: transparent; color: var(--branco);
+    border: 1px solid rgba(255,255,255,.3);
+  }
+  .rodape { margin-top: 30px; font-size: 12px; color: rgba(255,255,255,.5); line-height: 1.7; }
+
+  /* Botão fixo */
+  .fixo {
+    position: fixed; z-index: 20;
+    right: max(16px, calc(50vw - 240px + 16px));
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    width: 58px; height: 58px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--whats); color: var(--branco);
+    box-shadow: 0 6px 20px rgba(0,0,0,.35);
+  }
+
+  /* Ampliar foto */
+  dialog {
+    border: 0; padding: 0; background: transparent;
+    width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh;
+  }
+  dialog::backdrop { background: rgba(15,15,14,.94); }
+  .visor { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 12px 24px; }
+  .visor img { max-width: 100%; max-height: calc(100dvh - 150px); border-radius: 10px; object-fit: contain; }
+  .visor p { color: var(--branco); font-size: 14px; margin-top: 12px; text-align: center; }
+  .visor-nav { display: flex; gap: 12px; margin-top: 12px; }
+  .redondo {
+    width: 46px; height: 46px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.08); color: var(--branco);
+    font-size: 20px; line-height: 1; cursor: pointer;
+  }
+  .fechar { position: absolute; top: 12px; right: 12px; }
+
+  @media (min-width: 481px) {
+    .pagina { box-shadow: 0 0 60px rgba(0,0,0,.6); }
+  }
+  @media (max-width: 350px) {
+    .topo h1 { font-size: 32px; }
+    .card h2 { font-size: 19px; }
+  }
+</style>
+</head>
+<body>
+<div class="pagina">
+
+  <header class="topo">
+    <img src="img/sala-01.jpg" alt="Sala com painel e estante em madeira feitos sob medida pela GC" width="1080" height="1080" fetchpriority="high">
+    <div class="topo-texto">
+      <span class="selo">Guto Costa · 25 anos de marcenaria</span>
+      <h1>GC Projetos e Marcenaria</h1>
+      <p class="promessa">Móveis planejados sob medida, do projeto 3D à instalação.</p>
+      <p class="local">
+        <svg width="14" height="16" viewBox="0 0 14 16" fill="currentColor" aria-hidden="true"><path d="M7 0a6 6 0 0 0-6 6c0 4.4 6 10 6 10s6-5.600 6-10a6 6 0 0 0-6-6Zm0 8.200A2.200 2.200 0 1 1 7 3.800a2.200 2.200 0 0 1 0 4.400Z"/></svg>
+        <span>Rio de Janeiro: Barra da Tijuca, Recreio, Jacarepaguá e Zona Sul</span>
+      </p>
+      <a class="botao botao-whats botao-largo wa" data-msg="geral" href="https://wa.me/5521967619361">
+        <svg class="ico-whats" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5.050-1.320A10 10 0 1 0 12 2Zm0 18.200a8.200 8.200 0 0 1-4.180-1.150l-.300-.180-3 .790.800-2.920-.200-.300A8.200 8.200 0 1 1 12 20.200Zm4.500-6.130c-.250-.120-1.460-.720-1.680-.800-.230-.080-.390-.120-.560.120-.160.250-.640.800-.780.970-.140.160-.290.180-.530.060a6.700 6.700 0 0 1-1.980-1.220 7.400 7.400 0 0 1-1.370-1.700c-.140-.250-.010-.380.110-.500.110-.110.250-.290.370-.430.120-.140.160-.250.250-.410.080-.160.040-.310-.020-.430-.060-.120-.560-1.340-.760-1.840-.200-.480-.410-.420-.560-.420h-.480a.920.920 0 0 0-.660.310 2.800 2.800 0 0 0-.870 2.070c0 1.220.890 2.400 1.010 2.570.120.160 1.750 2.670 4.240 3.740.590.260 1.050.410 1.410.520.590.190 1.130.160 1.560.100.480-.070 1.460-.600 1.670-1.170.200-.580.200-1.070.140-1.170-.060-.110-.220-.170-.470-.290Z"/></svg>
+        Pedir orçamento no WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <div class="faixa" aria-label="Especialidades: cozinhas, quartos e closets, salas, home office, banheiros, área gourmet e projetos comerciais">
+    <div class="faixa-trilho" aria-hidden="true">
+      <span>Cozinhas</span><span>Quartos e closets</span><span>Salas</span><span>Home office</span><span>Banheiros</span><span>Área gourmet</span><span>Comercial</span>
+      <span>Cozinhas</span><span>Quartos e closets</span><span>Salas</span><span>Home office</span><span>Banheiros</span><span>Área gourmet</span><span>Comercial</span>
+    </div>
+  </div>
+
+  <nav class="vitrine" aria-label="Atalhos">
+    <a class="card largo wa" data-msg="geral" href="https://wa.me/5521967619361">
+      <img src="img/sala-02.jpg" alt="" loading="lazy" width="1080" height="1080">
+      <h2>Fale comigo</h2>
+      <p>Conte o que você precisa. Eu mesmo respondo.</p>
+      <span class="pilula whats">Chamar no WhatsApp</span>
+    </a>
+    <a class="card" href="#servicos">
+      <img src="img/cozinha-01.jpg" alt="" loading="lazy" width="1080" height="1080">
+      <h2>Meus serviços</h2>
+      <span class="pilula">Ver ambientes</span>
+    </a>
+    <a class="card" href="#portfolio">
+      <img src="img/quarto-05.jpg" alt="" loading="lazy" width="900" height="1200">
+      <h2>Portfólio</h2>
+      <span class="pilula">Ver projetos</span>
+    </a>
+    <a class="card largo" href="#como-funciona">
+      <img src="img/render-05.jpg" alt="" loading="lazy" width="1200" height="994">
+      <h2>Como funciona</h2>
+      <p>Do briefing à instalação, em 5 etapas.</p>
+      <span class="pilula">Ver o passo a passo</span>
+    </a>
+    <a class="card largo" id="card-depoimentos" href="#depoimentos" hidden>
+      <img src="img/varanda-02.jpg" alt="" loading="lazy" width="1200" height="900">
+      <h2>Depoimentos</h2>
+      <p>O que dizem os clientes.</p>
+      <span class="pilula">Ler depoimentos</span>
+    </a>
+  </nav>
+
+  <section id="servicos">
+    <span class="rotulo">Meus serviços</span>
+    <h2>Seu ambiente inteiro, planejado sob medida</h2>
+    <p class="intro">Residencial e comercial. Toque no ambiente para pedir o orçamento.</p>
+    <ul class="servicos">
+      <li><a class="servico wa" data-msg="Cozinha" href="https://wa.me/5521967619361">
+        <img src="img/cozinha-02.jpg" alt="" loading="lazy" width="84" height="84">
+        <div><h3>Cozinhas</h3><p>Armários, bancadas, ilhas e torres de eletros.</p><em>Pedir orçamento →</em></div></a></li>
+      <li><a class="servico wa" data-msg="Quarto ou closet" href="https://wa.me/5521967619361">
+        <img src="img/quarto-03.jpg" alt="" loading="lazy" width="84" height="84">
+        <div><h3>Quartos e closets</h3><p>Guarda-roupas, closets, cabeceiras e criados.</p><em>Pedir orçamento →</em></div></a></li>
+      <li><a class="servico wa" data-msg="Sala" href="https://wa.me/5521967619361">
+        <img src="img/sala-02.jpg" alt="" loading="lazy" width="84" height="84">
+        <div><h3>Salas</h3><p>Painéis de TV, estantes, racks e bares.</p><em>Pedir orçamento →</em></div></a></li>
+      <li><a class="servico wa" data-msg="Home office" href="https://wa.me/5521967619361">
+        <img src="img/home-08.jpg" alt="" loading="lazy" width="84" height="84">
+        <div><h3>Home office</h3><p>Bancadas, estantes e armários para trabalhar bem.</p><em>Pedir orçamento →</em></div></a></li>
+      <li><a class="servico wa" data-msg="Banheiro" href="https://wa.me/5521967619361">
+        <img src="img/banheiro-04.jpg" alt="" loading="lazy" width="84" height="84">
+        <div><h3>Banheiros</h3><p>Gabinetes, nichos e armários.</p><em>Pedir orçamento →</em></div></a></li>
+      <li><a class="servico wa" data-msg="Área gourmet" href="https://wa.me/5521967619361">
+        <img src="img/varanda-01.jpg" alt="" loading="lazy" width="84" height="84">
+        <div><h3>Área gourmet</h3><p>Varandas, bancadas, adegas e armários.</p><em>Pedir orçamento →</em></div></a></li>
+      <li><a class="servico wa" data-msg="Projeto comercial" href="https://wa.me/5521967619361">
+        <img src="img/comercial-01.jpg" alt="" loading="lazy" width="84" height="84">
+        <div><h3>Projetos comerciais</h3><p>Recepções, lojas, clínicas e escritórios.</p><em>Pedir orçamento →</em></div></a></li>
+    </ul>
+  </section>
+
+  <section id="portfolio">
+    <span class="rotulo">Portfólio</span>
+    <h2>Do render ao móvel pronto</h2>
+    <p class="intro">Fotos de obras entregues e projetos em 3D feitos por mim. Toque para ampliar.</p>
+    <div class="abas" role="tablist">
+      <button class="aba" role="tab" id="aba-obras" aria-controls="grade-obras" aria-selected="true">Obras entregues</button>
+      <button class="aba" role="tab" id="aba-3d" aria-controls="grade-3d" aria-selected="false">Projetos em 3D</button>
+    </div>
+    <div class="grade" id="grade-obras" role="tabpanel" aria-labelledby="aba-obras">
+      <button class="foto"><img src="img/sala-01.jpg" alt="Sala com painel de TV e estante em madeira" loading="lazy"><span>Sala</span></button>
+      <button class="foto"><img src="img/cozinha-01.jpg" alt="Cozinha com ilha e bancada escura" loading="lazy"><span>Cozinha</span></button>
+      <button class="foto alta"><img src="img/quarto-05.jpg" alt="Quarto com painel ripado escuro e cabeceira" loading="lazy"><span>Quarto</span></button>
+      <button class="foto"><img src="img/varanda-02.jpg" alt="Área gourmet com armário e prateleira iluminada" loading="lazy"><span>Área gourmet</span></button>
+      <button class="foto"><img src="img/comercial-01.jpg" alt="Balcão de recepção em madeira e pedra com iluminação" loading="lazy"><span>Recepção</span></button>
+      <button class="foto"><img src="img/sala-02.jpg" alt="Estante de sala de jantar em madeira com bar" loading="lazy"><span>Sala de jantar</span></button>
+      <button class="foto"><img src="img/cozinha-02.jpg" alt="Cozinha com torre de eletros espelhada" loading="lazy"><span>Cozinha</span></button>
+      <button class="foto alta"><img src="img/varanda-01.jpg" alt="Varanda gourmet com bancada, adega e nicho iluminado" loading="lazy"><span>Varanda</span></button>
+      <button class="foto"><img src="img/quarto-03.jpg" alt="Cabeceira iluminada com criado-mudo" loading="lazy"><span>Quarto</span></button>
+      <button class="foto"><img src="img/comercial-09.jpg" alt="Recepção comercial com painel ripado e balcão" loading="lazy"><span>Comercial</span></button>
+    </div>
+    <div class="grade" id="grade-3d" role="tabpanel" aria-labelledby="aba-3d" hidden>
+      <button class="foto"><img src="img/render-05.jpg" alt="Projeto 3D de suíte com armário em madeira" loading="lazy"><span>Projeto 3D</span></button>
+      <button class="foto"><img src="img/render-06.jpg" alt="Projeto 3D de quarto com closet em vidro" loading="lazy"><span>Projeto 3D</span></button>
+      <button class="foto alta"><img src="img/render-08.jpg" alt="Projeto 3D de banheiro com gabinete em madeira" loading="lazy"><span>Projeto 3D</span></button>
+      <button class="foto"><img src="img/render-01.jpg" alt="Projeto 3D de quarto com painel ripado e guarda-roupa" loading="lazy"><span>Projeto 3D</span></button>
+      <button class="foto"><img src="img/render-03.jpg" alt="Projeto 3D de quarto com cama suspensa" loading="lazy"><span>Projeto 3D</span></button>
+      <button class="foto"><img src="img/render-07.jpg" alt="Projeto 3D de studio integrado" loading="lazy"><span>Projeto 3D</span></button>
+    </div>
+    <p class="nota" id="nota-3d" hidden>Imagens de projeto (render). Você vê o ambiente assim antes de aprovar a produção.</p>
+  </section>
+
+  <section id="como-funciona">
+    <span class="rotulo">Como funciona</span>
+    <h2>Cinco etapas, um só responsável</h2>
+    <p class="intro">Você fala comigo do primeiro contato até a entrega.</p>
+    <ol class="passos">
+      <li><h3>Briefing e medição</h3><p>Conversamos sobre o que você precisa e eu vou até o local medir o espaço.</p></li>
+      <li><h3>Projeto 3D</h3><p>Desenho o ambiente em 3D para você ver como vai ficar antes de fabricar.</p></li>
+      <li><h3>Orçamento</h3><p>Proposta detalhada, com materiais, prazo e condições por escrito.</p></li>
+      <li><h3>Produção</h3><p>Fabricação sob medida, com o acabamento definido no projeto.</p></li>
+      <li><h3>Instalação</h3><p>Montagem no local, com acompanhamento até a entrega.</p></li>
+    </ol>
+    <a class="botao botao-ouro botao-largo wa" data-msg="geral" href="https://wa.me/5521967619361" style="margin-top:26px">Começar pelo briefing</a>
+  </section>
+
+  <section id="depoimentos" hidden>
+    <span class="rotulo">Depoimentos</span>
+    <h2>Quem já fez com a GC</h2>
+    <div class="depoimentos" id="lista-depoimentos"></div>
+  </section>
+
+  <footer class="fecho">
+    <img src="img/logo.svg" alt="GC Guto Costa Projetos e Marcenaria" width="120" height="147" loading="lazy">
+    <h2>Vamos planejar o seu ambiente?</h2>
+    <p>Me chame no WhatsApp e conte qual ambiente você quer transformar.</p>
+    <a class="botao botao-whats botao-largo wa" data-msg="geral" href="https://wa.me/5521967619361">Pedir orçamento no WhatsApp</a>
+    <a class="botao botao-largo insta" href="https://www.instagram.com/marcenariagutocosta/" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.500" cy="6.500" r="1" fill="currentColor" stroke="none"/></svg>
+      @marcenariagutocosta
+    </a>
+    <p class="rodape">GC Projetos e Marcenaria · Guto Costa<br>Jacarepaguá, Rio de Janeiro · (21) 96761-9361</p>
+  </footer>
+
+  <a class="fixo wa" data-msg="geral" href="https://wa.me/5521967619361" aria-label="Chamar no WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.600 15.100L2 22l5.050-1.320A10 10 0 1 0 12 2Zm0 18.200a8.200 8.200 0 0 1-4.180-1.150l-.300-.180-3 .790.800-2.920-.200-.300A8.200 8.200 0 1 1 12 20.200Zm4.500-6.130c-.250-.120-1.460-.720-1.680-.800-.230-.080-.390-.120-.560.120-.160.250-.640.800-.780.970-.140.160-.290.180-.530.060a6.700 6.700 0 0 1-1.980-1.220 7.400 7.400 0 0 1-1.370-1.700c-.140-.250-.010-.380.110-.500.110-.110.250-.290.370-.430.120-.140.160-.250.250-.410.080-.160.040-.310-.020-.430-.060-.120-.560-1.340-.760-1.840-.200-.480-.410-.420-.560-.420h-.480a.920.920 0 0 0-.660.310 2.800 2.800 0 0 0-.870 2.070c0 1.220.890 2.400 1.010 2.570.120.160 1.750 2.670 4.240 3.740.590.260 1.050.410 1.410.520.590.190 1.130.160 1.560.100.480-.070 1.460-.600 1.670-1.170.200-.580.200-1.070.140-1.170-.060-.110-.220-.170-.470-.290Z"/></svg>
+  </a>
+</div>
+
+<dialog id="visor" aria-label="Foto ampliada">
+  <div class="visor">
+    <button class="redondo fechar" id="visor-fechar" aria-label="Fechar">×</button>
+    <img id="visor-img" alt="">
+    <p id="visor-legenda"></p>
+    <div class="visor-nav">
+      <button class="redondo" id="visor-ant" aria-label="Foto anterior">‹</button>
+      <button class="redondo" id="visor-prox" aria-label="Próxima foto">›</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  // ====== DADOS PARA EDITAR ======
+  const WHATSAPP = "5521967619361"; // 55 + DDD + número, só dígitos
+  const MSG_GERAL = "Olá, Guto! Vim pelo Instagram e gostaria de um orçamento de móveis planejados.";
+  const MSG_AMBIENTE = "Olá, Guto! Vim pelo Instagram e gostaria de um orçamento para: ";
+
+  // Depoimentos reais de clientes. Enquanto a lista estiver vazia, a seção não aparece.
+  // Modelo: { texto: "O que o cliente disse.", nome: "Nome", detalhe: "Cozinha · Recreio" },
+  const DEPOIMENTOS = [
+  ];
+  // ===============================
+
+  document.querySelectorAll("a.wa").forEach(a => {
+    const m = a.dataset.msg;
+    const texto = m === "geral" ? MSG_GERAL : MSG_AMBIENTE + m + ".";
+    a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(texto);
+    a.target = "_blank";
+    a.rel = "noopener";
+  });
+
+  if (DEPOIMENTOS.length) {
+    const lista = document.getElementById("lista-depoimentos");
+    DEPOIMENTOS.forEach(d => {
+      const bloco = document.createElement("blockquote");
+      bloco.className = "depoimento";
+      const p = document.createElement("p");
+      p.textContent = "“" + d.texto + "”";
+      const f = document.createElement("footer");
+      const s = document.createElement("strong");
+      s.textContent = d.nome;
+      f.append(s, d.detalhe ? " · " + d.detalhe : "");
+      bloco.append(p, f);
+      lista.append(bloco);
+    });
+    document.getElementById("depoimentos").hidden = false;
+    document.getElementById("card-depoimentos").hidden = false;
+  }
+
+  const abas = [...document.querySelectorAll(".aba")];
+  abas.forEach(aba => aba.addEventListener("click", () => {
+    abas.forEach(a => {
+      const ativa = a === aba;
+      a.setAttribute("aria-selected", ativa);
+      document.getElementById(a.getAttribute("aria-controls")).hidden = !ativa;
+    });
+    document.getElementById("nota-3d").hidden = aba.id !== "aba-3d";
+  }));
+
+  const visor = document.getElementById("visor");
+  const visorImg = document.getElementById("visor-img");
+  const visorLegenda = document.getElementById("visor-legenda");
+  let fotos = [], atual = 0;
+  function mostrar(i) {
+    atual = (i + fotos.length) % fotos.length;
+    const img = fotos[atual].querySelector("img");
+    visorImg.src = img.src;
+    visorImg.alt = img.alt;
+    visorLegenda.textContent = img.alt;
+  }
+  document.querySelectorAll(".foto").forEach(botao => botao.addEventListener("click", () => {
+    fotos = [...botao.parentElement.querySelectorAll(".foto")];
+    mostrar(fotos.indexOf(botao));
+    visor.showModal();
+  }));
+  document.getElementById("visor-fechar").addEventListener("click", () => visor.close());
+  document.getElementById("visor-ant").addEventListener("click", () => mostrar(atual - 1));
+  document.getElementById("visor-prox").addEventListener("click", () => mostrar(atual + 1));
+  visor.addEventListener("click", e => { if (e.target === visor || e.target.classList.contains("visor")) visor.close(); });
+  visor.addEventListener("keydown", e => {
+    if (e.key === "ArrowLeft") mostrar(atual - 1);
+    if (e.key === "ArrowRight") mostrar(atual + 1);
+  });
+</script>
+</body>
+</html>
